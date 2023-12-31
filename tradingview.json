@@ -1,0 +1,11 @@
+{
+    "Connection": "upgrade",
+    "Host": "attendace-bn4c.onrender.co",
+    "Origin": "https://attendace-bn4c.onrender.com",
+    "Cache-Control": "no-cache",
+    "Sec-WebSocket-Protocol": "json",
+    "Upgrade": "websocket",
+    "User-Agent": "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36 Edg/83.0.478.56",
+    "Pragma": "no-cache",
+    "Upgrade": "websocket"
+}
