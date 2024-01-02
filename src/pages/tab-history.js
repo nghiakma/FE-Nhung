@@ -51,7 +51,7 @@ const TabHistory = () => {
                         <tr>
                             <th scope="col">STT</th>
                             <th scope="col">ID Card</th>
-                            <th scope="col">Họ và Tên</th>
+                            <th scope="col">Mã sinh viên</th>
                             <th scope="col">Thời gian vào</th>
                             <th scope="col">Thời gian ra</th>
                         </tr>
@@ -63,7 +63,7 @@ const TabHistory = () => {
                                     <tr key={index}>
                                         <th scope="row">{index + 1}</th>
                                         <td>{item.id_card}</td>
-                                        <td>{item.username}</td>
+                                        <td>{item.studentId}</td>
                                         <td>{item.date_time_in ? convertDateTime(item.date_time_in) : '--'}</td>
                                         <td>{item.date_time_out ? convertDateTime(item.date_time_out) : '--'}</td>
                                     </tr>

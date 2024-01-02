@@ -8,14 +8,14 @@ import { convertDateTime, getDateTime } from './api/convert-time'
 
 const ModalAdd = (props) => {
     const [cardId, setCardId] = useState("");
-    const [userName, setUserName] = useState("");
+    const [studentId, setStudentId] = useState("");
 
     useEffect(() => {
         setCardId(props.cardIdAdd);
     }, [props.cardIdAdd, props.triggerNewCardAdd])
 
     async function Save() {
-        if (cardId.length > 0 && userName.length > 0) {
+        if (cardId.length > 0 && studentId.length > 0) {
 
             let res = await getUserByIdCard(cardId);
             if (res) {
@@ -25,13 +25,13 @@ const ModalAdd = (props) => {
                 else {
                     let data = {
                         id_card: cardId,
-                        username: userName,
+                        studentId: studentId,
                         create_time: getDateTime()
                     }
                     let res = await addUser(data);
                     if (res) {
                         setCardId("");
-                        setUserName("");
+                        setStudentId("");
                         document.getElementById('closeModal').click();
                         props.handSaveSuccess();
                     }
@@ -48,7 +48,7 @@ const ModalAdd = (props) => {
 
     function onCanelClick() {
         setCardId("");
-        setUserName("");
+        setStudentId("");
     }
 
     return (
@@ -77,8 +77,8 @@ const ModalAdd = (props) => {
                                 className="form-control"
                                 placeholder="Họ và tên"
                                 aria-describedby="basic-addon2"
-                                onChange={(e) => setUserName(e.target.value)}
-                                value={userName} />
+                                onChange={(e) => setStudentId(e.target.value)}
+                                value={studentId} />
                         </div>
                     </div>
                     <div className="modal-footer">
@@ -97,7 +97,7 @@ const TabCardManager = (props) => {
     const [data, setData] = useState([]);
     const [showModalEdit, setShowModalEdit] = useState(false);
     const [cardIdEdit, setCardIdEdit] = useState(props.id_card);
-    const [userNameEdit, setUserNameEdit] = useState(props.username);
+    const [studentIdEdit, setStudentIdEdit] = useState(props.studentId);
 
     useEffect(() => {
         getCardManager();
@@ -116,7 +116,7 @@ const TabCardManager = (props) => {
 
     const handEditClick = (row) => {
         setCardIdEdit(row.id_card);
-        setUserNameEdit(row.username);
+        setStudentIdEdit(row.studentId);
         setDataRow(row);
         setShowModalEdit(prev => !prev);
     }
@@ -130,13 +130,13 @@ const TabCardManager = (props) => {
 
     const ModalEdit = (props) => {
         let newCardID = props.dataRow.id_card;
-        let newUserName = props.dataRow.username;
+        let newStudentId = props.dataRow.studentId;
 
         async function Save() {
-            if (newCardID.length > 0 && newUserName.length > 0) {
+            if (newCardID.length > 0 && newStudentId.length > 0) {
                 let data = [{
                     id_card: newCardID,
-                    username: newUserName,
+                    studentId: newStudentId,
                 }, props.dataRow.id];
                 let res = await editUser(data);
                 if (res) {
@@ -182,8 +182,8 @@ const TabCardManager = (props) => {
                                     className="form-control"
                                     placeholder="Họ và tên"
                                     aria-describedby="basic-addon2"
-                                    defaultValue={userNameEdit}
-                                    onChange={((e) => newUserName = (e.target.value))} />
+                                    defaultValue={studentIdEdit}
+                                    onChange={((e) => newStudentId = (e.target.value))} />
                             </div>
                         </div>
                         <div className="modal-footer">
@@ -215,7 +215,7 @@ const TabCardManager = (props) => {
                             <tr>
                                 <th scope="col">STT</th>
                                 <th scope="col">ID Card</th>
-                                <th scope="col">Họ và Tên</th>
+                                <th scope="col">Mã sinh viên</th>
                                 <th scope="col">Ngày tạo</th>
                                 <th scope="col">Hành động</th>
                             </tr>
@@ -227,7 +227,7 @@ const TabCardManager = (props) => {
                                         <tr key={item.id}>
                                             <th scope="row">{index + 1}</th>
                                             <td>{item.id_card}</td>
-                                            <td>{item.username}</td>
+                                            <td>{item.studentId}</td>
                                             <td>{convertDateTime(item.create_time)}</td>
                                             <td>
                                                 <button

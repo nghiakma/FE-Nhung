@@ -7,7 +7,7 @@ import { getHistory, addHistory, getHistoryById, updateHistory, getUserByIdCard 
 const TabHome = (props) => {
     const [data, setData] = useState([]);
     const [cardId, setCardId] = useState("--");
-    const [userName, setUserName] = useState("--");
+    const [studentId, setStudentId] = useState("--");
     const [timeCreate, setTimeCreate] = useState("--");
 
     useEffect(() => {
@@ -32,9 +32,9 @@ const TabHome = (props) => {
         if (res) {
             if (res.length > 0) {
                 setCardId(cardId);
-                setUserName(res[0].username);
+                setStudentId(res[0].studentId);
                 setTimeCreate(convertDateTime(res[0].create_time));
-                props.wsSend(res[0].username.normalize('NFD').replace(/[\u0300-\u036f]/g, ''));
+                props.wsSend(res[0].studentId.normalize('NFD').replace(/[\u0300-\u036f]/g, ''));
                 checkSateHistory(props.cardId);
             }
             else {
@@ -94,8 +94,8 @@ const TabHome = (props) => {
                         <div className={styles.panelLeftRowContent}>{cardId}</div>
                     </div>
                     <div className={styles.panelLeftRow}>
-                        <div className={styles.panelLeftRowTitle}>Họ và Tên</div>
-                        <div className={styles.panelLeftRowContent}>{userName}</div>
+                        <div className={styles.panelLeftRowTitle}>Mã sinh viên</div>
+                        <div className={styles.panelLeftRowContent}>{studentId}</div>
                     </div>
                     <div className={styles.panelLeftRow}>
                         <div className={styles.panelLeftRowTitle}>Thời gian tạo</div>
@@ -116,7 +116,7 @@ const TabHome = (props) => {
                             <tr>
                                 <th scope="col">STT</th>
                                 <th scope="col">ID Card</th>
-                                <th scope="col">Họ và Tên</th>
+                                <th scope="col">Mã sinh viên</th>
                                 <th scope="col">Thời gian vào</th>
                                 <th scope="col">Thời gian ra</th>
                             </tr>
@@ -128,7 +128,7 @@ const TabHome = (props) => {
                                         <tr key={index}>
                                             <th scope="row">{index + 1}</th>
                                             <td>{item.id_card}</td>
-                                            <td>{item.username}</td>
+                                            <td>{item.studentId}</td>
                                             <td>{item.date_time_in ? convertDateTime(item.date_time_in) : '--'}</td>
                                             <td>
                                                 {item.date_time_out ? convertDateTime(item.date_time_out) : '--'}

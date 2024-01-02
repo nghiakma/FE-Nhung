@@ -13,16 +13,16 @@ const TabInfo = () => {
                         width={200}
                         height={'auto'}
                     />
-                    <h1>TRƯỜNG ĐẠI HỌC NÔNG LÂM THÀNH PHỐ HỒ CHÍ MINH</h1>
+                    <h1>Hoc Vien Ky Thuat Mat Ma</h1>
                 </div>
             </div>
             <br />
-            <h1>ĐỀ TÀI: THIẾT KẾ CHẾ TẠO MÔ HÌNH ĐIỂM DANH SINH VIÊN ỨNG DỤNG IOT</h1>
+            <h1>ĐỀ TÀI: Diem Danh Sinh VIen</h1>
             <div className={styles.des}>
-                <h3>Họ và tên: Nguyễn Tấn Thành</h3>
-                <h3>Lớp: DH19CD</h3>
-                <h3>GVHH: ThS.Nguyễn Tấn Phúc</h3>
-                <h3>GVHH: KS.Hồ Văn Nghĩa</h3>
+                <h3>Họ và tên: Tran Xuan Nghia</h3>
+                <h3>Lớp: L03</h3>
+                <h3>GVHH: Trieu Vu Van Quan</h3>
+                
             </div>
         </div>
     )
