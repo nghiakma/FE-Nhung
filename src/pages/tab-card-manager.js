@@ -71,11 +71,11 @@ const ModalAdd = (props) => {
                                 value={cardId} />
                         </div>
                         <div className="input-group mb-3">
-                            <span className="input-group-text" id="basic-addon2">Họ và tên</span>
+                            <span className="input-group-text" id="basic-addon2">Mã sinh viên</span>
                             <input
                                 type="text"
                                 className="form-control"
-                                placeholder="Họ và tên"
+                                placeholder="Mã sinh viên"
                                 aria-describedby="basic-addon2"
                                 onChange={(e) => setStudentId(e.target.value)}
                                 value={studentId} />
@@ -176,11 +176,11 @@ const TabCardManager = (props) => {
                                     onChange={((e) => newCardID = (e.target.value))} />
                             </div>
                             <div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon2">Họ và tên</span>
+                                <span className="input-group-text" id="basic-addon2">Mã sinh viên</span>
                                 <input
                                     type="text"
                                     className="form-control"
-                                    placeholder="Họ và tên"
+                                    placeholder="Mã sinh viên"
                                     aria-describedby="basic-addon2"
                                     defaultValue={studentIdEdit}
                                     onChange={((e) => newStudentId = (e.target.value))} />
